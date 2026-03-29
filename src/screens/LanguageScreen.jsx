@@ -5,9 +5,9 @@ import React, { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 
 const LANGUAGES = [
-  { code: "en", label: "English", sublabel: "English", flag: "🇬🇧", voiceKeywords: ["english"] },
-  { code: "hi", label: "हिंदी", sublabel: "Hindi", flag: "🇮🇳", voiceKeywords: ["hindi", "हिंदी"] },
-  { code: "mr", label: "मराठी", sublabel: "Marathi", flag: "🟢", voiceKeywords: ["marathi", "मराठी"] },
+  { code: "en", label: "English", sublabel: "English", voiceKeywords: ["english"] },
+  { code: "hi", label: "हिंदी", sublabel: "Hindi", voiceKeywords: ["hindi", "हिंदी"] },
+  { code: "mr", label: "मराठी", sublabel: "Marathi", voiceKeywords: ["marathi", "मराठी"] },
 ];
 
 export default function LanguageScreen() {
@@ -34,8 +34,18 @@ export default function LanguageScreen() {
       mr: "मी तुमची कशी मदत करू शकतो?",
     };
     const utter = new SpeechSynthesisUtterance(greetings[code]);
-    utter.lang = code === "en" ? "en-IN" : code === "hi" ? "hi-IN" : "mr-IN";
+    
+    let targetLang = code === "en" ? "en-IN" : code === "hi" ? "hi-IN" : "mr-IN";
+    utter.lang = targetLang;
+    
+    if (code === "mr") {
+        const voices = window.speechSynthesis.getVoices();
+        const hasMarathi = voices.some(v => v.lang.includes("mr"));
+        if (!hasMarathi) utter.lang = "hi-IN";
+    }
+    
     utter.rate = 0.9;
+    window._currentUtterance = utter;
     window.speechSynthesis.speak(utter);
   }
 
@@ -111,7 +121,7 @@ export default function LanguageScreen() {
               transition: "all 0.3s ease",
             }}
           >
-            <span className="text-4xl">{lang.flag}</span>
+
             <div>
               <div className="text-2xl font-bold text-white" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
                 {lang.label}

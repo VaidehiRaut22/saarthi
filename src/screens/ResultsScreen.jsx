@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 import schemes, { getMatchScore } from "../data/schemes";
 import SchemeModal from "../components/SchemeModal";
+import { Button } from "../components/ui/Button";
 
 export default function ResultsScreen() {
   const { navigate, profile, t, language } = useApp();
@@ -13,10 +14,10 @@ export default function ResultsScreen() {
 
   useEffect(() => {}, []);
 
-  // 🔥 Score & sort
+  // 🔥 Score & filter
   const scored = schemes
     .map((s) => ({ ...s, score: getMatchScore(s, profile) }))
-    .sort((a, b) => b.score - a.score);
+    .filter((s) => s.score > 0);
 
   const bestScore = scored[0]?.score || 0;
 
@@ -55,14 +56,23 @@ export default function ResultsScreen() {
   };
 
   return (
-    <div className="min-h-screen w-full px-6 py-8">
+    <div className="h-screen w-full px-6 py-8 overflow-y-auto pb-24">
 
       {/* HEADER */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-white">
+      <div className="text-center mb-10 relative">
+        <button
+            onClick={() => navigate("chat")}
+            className="absolute left-0 top-0 mt-2 px-4 py-2 text-sm text-gray-400 hover:text-white bg-white/5 rounded-lg border border-white/10"
+        >
+            ← {t.back}
+        </button>
+        <h2 className="text-2xl font-bold text-indigo-400 mb-2" style={{ fontFamily: "Sora, sans-serif" }}>
+          Welcome, {profile.name || "User"}!
+        </h2>
+        <h1 className="text-5xl font-extrabold text-white mb-3" style={{ fontFamily: "Sora, sans-serif" }}>
           {t.results}
         </h1>
-        <p className="text-gray-400">{t.resultsSub}</p>
+        <p className="text-lg text-gray-400">{t.resultsSub}</p>
       </div>
 
       {/* EMPTY */}
@@ -71,7 +81,7 @@ export default function ResultsScreen() {
           {t.noSchemes}
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {scored.map((scheme, idx) => (
             <SchemeCard
@@ -122,8 +132,8 @@ function SchemeCard({ scheme, language, t, isBest, delay, onClick, onPrint }) {
   return (
     <div
       onClick={onClick}
-      className="p-5 rounded-xl bg-white/5 border border-white/10 hover:scale-105 transition cursor-pointer flex flex-col"
-      style={{ animationDelay: `${delay}s` }}
+      className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:shadow-2xl hover:border-indigo-500/50 hover:-translate-y-2 transition-all duration-300 cursor-pointer flex flex-col"
+      style={{ animationDelay: `${delay}s`, boxShadow: "0 8px 32px rgba(0,0,0,0.2)" }}
     >
 
       {/* BEST */}
@@ -133,44 +143,49 @@ function SchemeCard({ scheme, language, t, isBest, delay, onClick, onPrint }) {
         </span>
       )}
 
-      {/* TITLE */}
-      <h2 className="text-lg font-bold text-white mb-2">
+      <h2 className="text-xl font-bold text-white mb-3 leading-snug">
         {name}
       </h2>
 
       {/* MATCH */}
-      <p className="text-sm text-green-400 mb-2">
+      <p className="text-sm font-semibold text-green-400 mb-4 bg-green-400/10 w-max px-3 py-1 rounded-full">
         {pct}% Match
       </p>
 
       {/* ELIGIBILITY */}
-      <p className="text-xs text-gray-400 mb-2">
-        {eligibility}
+      <p className="text-sm text-gray-300 mb-3 leading-relaxed">
+        <span className="text-indigo-300 font-semibold">{t.eligibility}:</span> {eligibility}
       </p>
 
       {/* BENEFITS */}
-      <p className="text-xs text-gray-400 mb-4">
-        {benefits}
+      <p className="text-sm text-gray-400 mb-6 leading-relaxed flex-grow">
+        <span className="text-indigo-300 font-semibold">{t.benefits}:</span> {benefits}
       </p>
 
       {/* BUTTONS */}
       <div className="mt-auto flex gap-2">
 
         {/* VIEW */}
-        <button className="flex-1 bg-blue-500 text-white py-2 rounded">
+        <Button 
+          variant="mono"
+          size="lg" 
+          className="flex-1 bg-indigo-600 hover:bg-indigo-500 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white rounded-xl shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] h-auto py-3 transition-all duration-300"
+        >
           {t.viewDetails}
-        </button>
+        </Button>
 
         {/* PRINT */}
-        <button
+        <Button
+          variant="outline"
+          size="icon"
           onClick={(e) => {
             e.stopPropagation();
             onPrint && onPrint();
           }}
-          className="px-3 bg-indigo-600 text-white rounded"
+          className="rounded-xl bg-gray-700/50 hover:bg-gray-600 border-white/10 text-white w-14 h-auto flex items-center justify-center transition-all duration-300 shadow-md"
         >
           🖨️
-        </button>
+        </Button>
 
       </div>
     </div>

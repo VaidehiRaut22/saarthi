@@ -145,7 +145,7 @@ const TIPS = [
   { icon: "🌐", title: "Select Language", desc: "Choose English, Hindi, or Marathi. You can also speak your language using the mic." },
   { icon: "🎤", title: "Voice Input", desc: "Tap the mic button on any step to speak your answer instead of typing." },
   { icon: "📋", title: "Find Schemes", desc: "Enter your age, income, and occupation to see matching government schemes." },
-  { icon: "👆", title: "View Details", desc: "Tap any scheme card to see full details, required documents, and QR code." },
+  { icon: "👆", title: "View Details", desc: "Tap any scheme card to see full details and required documents." },
   { icon: "🖨️", title: "Print / Share", desc: "In the detail popup, tap Print to get a physical copy of the scheme info." },
   { icon: "🔄", title: "Start Over", desc: "Use the 'Start Over' button at the bottom of results to reset the kiosk." },
 ];

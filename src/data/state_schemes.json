@@ -1,0 +1,366 @@
+{
+  "Maharashtra": [
+    {
+      "name": "Mahatma Jyotiba Phule Jan Arogya Yojana",
+      "benefits": "Free health insurance and covers major hospital expenses",
+      "eligibility": "Families living below poverty line or low income in Maharashtra",
+      "documents": ["Aadhaar", "Ration Card", "Income Certificate"],
+      "link": "https://www.jeevandayee.gov.in"
+    },
+    {
+      "name": "Shiv Bhojan Yojana",
+      "benefits": "Healthy and affordable meals at just Rs. 10",
+      "eligibility": "All citizens needing affordable food",
+      "documents": ["Aadhaar"],
+      "link": "https://mahafood.gov.in"
+    },
+    {
+      "name": "Sanjay Gandhi Niradhar Anudan Yojana",
+      "benefits": "Monthly pension of Rs. 1500 for survival support",
+      "eligibility": "Old aged, disabled, or destitute people with low income",
+      "documents": ["Aadhaar", "Age Proof", "Income Certificate", "Disability Certificate"],
+      "link": "https://sjsa.maharashtra.gov.in"
+    },
+    {
+      "name": "Shravanbal Seva Rajya Nivruttivetan Yojana",
+      "benefits": "Financial assistance of Rs. 1000 per month for the elderly",
+      "eligibility": "Senior citizens above 65 years from low-income families",
+      "documents": ["Aadhaar", "Age Proof", "Income Certificate"],
+      "link": "https://sjsa.maharashtra.gov.in"
+    },
+    {
+      "name": "Namo Shetkari Maha Samman Nidhi",
+      "benefits": "Rs. 6000 per year direct financial support to farmers",
+      "eligibility": "Farmers registered under PM-KISAN in Maharashtra",
+      "documents": ["Aadhaar", "Land Records", "Bank Passbook"],
+      "link": "https://agri.maharashtra.gov.in"
+    },
+    {
+      "name": "Lek Ladki Yojana",
+      "benefits": "Financial support up to Rs. 1,00,000 for girl child from birth to age 18",
+      "eligibility": "Girls born in low income / BPL families",
+      "documents": ["Birth Certificate", "Aadhaar", "Ration Card", "Bank Account"],
+      "link": "https://womenchild.maharashtra.gov.in"
+    },
+    {
+      "name": "Ramai Awas Yojana",
+      "benefits": "Financial aid to build a permanent brick house",
+      "eligibility": "Low income families needing a house (SC/ST category focus)",
+      "documents": ["Aadhaar", "Caste Certificate", "Income Certificate", "Land Proof"],
+      "link": "https://sjsa.maharashtra.gov.in"
+    },
+    {
+      "name": "Dr. Panjabrao Deshmukh Hostel Maintenance Allowance",
+      "benefits": "Covers hostel and living expenses for students",
+      "eligibility": "Children of registered farmers pursuing higher education",
+      "documents": ["Aadhaar", "Admission Proof", "Farmer Certificate", "Income Certificate"],
+      "link": "https://mahadbt.maharashtra.gov.in"
+    },
+    {
+      "name": "Bal Sangopan Yojana",
+      "benefits": "Rs. 1100 per month for taking care of orphaned or vulnerable children",
+      "eligibility": "Guardians taking care of orphaned children",
+      "documents": ["Aadhaar", "Child Birth Certificate", "Guardian Proof"],
+      "link": "https://womenchild.maharashtra.gov.in"
+    },
+    {
+      "name": "Vithalrao Vikhe Patil Krishi Sanjeevani Yojana",
+      "benefits": "Support and training mechanisms to stop crop failures",
+      "eligibility": "Farmers facing drought or crop distress",
+      "documents": ["Aadhaar", "Land Records", "Crop Loss Proof"],
+      "link": "https://agri.maharashtra.gov.in"
+    }
+  ],
+
+  "Karnataka": [
+    {
+      "name": "Gruha Lakshmi Scheme",
+      "benefits": "Rs. 2000 per month deposited to female head of the family",
+      "eligibility": "Women head of BPL/APL families in Karnataka",
+      "documents": ["Aadhaar", "Ration Card", "Bank Passbook"],
+      "link": "https://sevasindhu.karnataka.gov.in"
+    },
+    {
+      "name": "Annabhagya Yojana",
+      "benefits": "Free 10 kg rice per person every month",
+      "eligibility": "BPL and Antyodaya card holders",
+      "documents": ["Aadhaar", "Ration Card"],
+      "link": "https://ahara.kar.nic.in"
+    },
+    {
+      "name": "Karnataka Raitha Siri Yojana",
+      "benefits": "Rs. 10000 per hectare for growing minor millets",
+      "eligibility": "Farmers growing millets like ragi and jowar",
+      "documents": ["Aadhaar", "Land Records", "Crop Certificate"],
+      "link": "https://raitamitra.karnataka.gov.in"
+    },
+    {
+      "name": "Vidyasiri Scholarship",
+      "benefits": "Free hostel accommodation and scholarship amount",
+      "eligibility": "Students from backward classes attending college",
+      "documents": ["Aadhaar", "Income Certificate", "Caste Certificate", "Marks Card"],
+      "link": "https://ssp.karnataka.gov.in"
+    },
+    {
+      "name": "Yuva Nidhi Scheme",
+      "benefits": "Unemployment allowance of Rs. 3000 for graduates",
+      "eligibility": "Unemployed youth who graduated in the current year",
+      "documents": ["Aadhaar", "Degree Certificate", "Bank Account"],
+      "link": "https://sevasindhu.karnataka.gov.in"
+    },
+    {
+      "name": "Mathrushree Scheme",
+      "benefits": "Rs. 6000 financial aid for pregnant women",
+      "eligibility": "Pregnant women belonging to BPL families",
+      "documents": ["Aadhaar", "BPL Card", "Pregnancy Registration Card"],
+      "link": "https://karnataka.gov.in"
+    },
+    {
+      "name": "Sandhya Suraksha Yojana",
+      "benefits": "Monthly pension of Rs. 1000 for elderly people",
+      "eligibility": "Senior citizens above 65 years with low income",
+      "documents": ["Aadhaar", "Age Proof", "Income Certificate"],
+      "link": "https://karnataka.gov.in"
+    },
+    {
+      "name": "Shakti Scheme",
+      "benefits": "Free travel in non-premium state buses",
+      "eligibility": "All women domiciled in Karnataka",
+      "documents": ["Aadhaar or State ID card"],
+      "link": "https://sevasindhu.karnataka.gov.in"
+    },
+    {
+      "name": "Ganga Kalyana Scheme",
+      "benefits": "Free borewell drilling and pump sets installed for irrigation",
+      "eligibility": "Small and marginal farmers from SC/ST category",
+      "documents": ["Aadhaar", "Caste Certificate", "Land Records"],
+      "link": "https://karnataka.gov.in"
+    },
+    {
+      "name": "Arivu Education Loan Scheme",
+      "benefits": "Low interest education loans up to Rs. 1 Lakh",
+      "eligibility": "Minority community students aiming for professional courses",
+      "documents": ["Aadhaar", "Income/Caste Proof", "Admission Letter"],
+      "link": "https://kmdc.karnataka.gov.in"
+    }
+  ],
+
+  "Haryana": [
+    {
+      "name": "Mukhyamantri Parivar Samridhi Yojana",
+      "benefits": "Rs. 6000 per year for health, life insurance and pension",
+      "eligibility": "Families with income less than Rs. 1.8 Lakh per year",
+      "documents": ["Aadhaar", "Parivar Pehchan Patra (Family ID)"],
+      "link": "https://saralharyana.gov.in"
+    },
+    {
+      "name": "Saksham Yuva Yojana",
+      "benefits": "Rs. 3000 monthly allowance plus 100 hours of paid work",
+      "eligibility": "Educated unemployed youth of Haryana",
+      "documents": ["Aadhaar", "Education Certificates", "Family ID"],
+      "link": "https://hreyahs.gov.in"
+    },
+    {
+      "name": "Bhavantar Bharpayee Yojana",
+      "benefits": "Compensation to farmers if crops sell below fixed base price",
+      "eligibility": "Farmers growing vegetables and fruits in Haryana",
+      "documents": ["Aadhaar", "Land Records", "Meri Fasal Mera Byora Registration"],
+      "link": "https://fasal.haryana.gov.in"
+    },
+    {
+      "name": "Chiranjeevi Yojana",
+      "benefits": "Free delivery and medical care for pregnant women",
+      "eligibility": "Pregnant women in rural and BPL category",
+      "documents": ["Aadhaar", "BPL Card", "Maternal Health Card"],
+      "link": "https://haryanahealth.nic.in"
+    },
+    {
+      "name": "Mera Pani Meri Virasat",
+      "benefits": "Rs. 7000 per acre for shifting from paddy to alternative crops",
+      "eligibility": "Farmers willing to save water by changing crops",
+      "documents": ["Aadhaar", "Land Records", "Crop Details"],
+      "link": "https://agriharyana.gov.in"
+    },
+    {
+      "name": "Old Age Samman Allowance",
+      "benefits": "Monthly pension of Rs. 3000 for elderly citizens",
+      "eligibility": "Citizens aged 60+ living in Haryana with low income",
+      "documents": ["Aadhaar", "Age Proof", "Family ID"],
+      "link": "https://socialjusticehry.gov.in"
+    },
+    {
+      "name": "Pashu Kisan Credit Card",
+      "benefits": "Loans up to Rs. 1.6 Lakh without guarantee for livestock",
+      "eligibility": "Farmers possessing cows, buffaloes, sheep, or goats",
+      "documents": ["Aadhaar", "Animal Health Certificate", "Bank Details"],
+      "link": "https://pashudhanharyana.gov.in"
+    },
+    {
+      "name": "Dr. Ambedkar Medhavi Chhattar Yojana",
+      "benefits": "Scholarship starting from Rs. 8000 for meritorious students",
+      "eligibility": "SC/BC students who score above 70% in board exams",
+      "documents": ["Aadhaar", "Marksheets", "Caste Certificate", "Income Certificate"],
+      "link": "https://saralharyana.gov.in"
+    },
+    {
+      "name": "Kanyadaan Yojana",
+      "benefits": "Financial aid of Rs. 51,000 for daughter's marriage",
+      "eligibility": "Low-income, SC/ST/BC families or widows",
+      "documents": ["Aadhaar", "Marriage Invitation", "Income Certificate", "Age Proof of Bride"],
+      "link": "https://saralharyana.gov.in"
+    },
+    {
+      "name": "Haryana Matrushakti Udyamita Scheme",
+      "benefits": "Soft loans up to Rs. 3 Lakhs to women entrepreneurs",
+      "eligibility": "Women from families with income below Rs. 5 Lakh",
+      "documents": ["Aadhaar", "Family ID", "Business Plan", "Bank Account"],
+      "link": "https://wcdhry.gov.in"
+    }
+  ],
+
+  "Delhi": [
+    {
+      "name": "Delhi Ladli Scheme",
+      "benefits": "Financial support deposited in stages up to Rs. 100,000 for girls",
+      "eligibility": "Girls born in Delhi hospitals to low-income families",
+      "documents": ["Child Birth Certificate", "Aadhaar", "Parents Income Proof"],
+      "link": "https://wcd.delhi.gov.in"
+    },
+    {
+      "name": "Delhi Pension Scheme",
+      "benefits": "Monthly pension of Rs. 2500 for survival and medicines",
+      "eligibility": "Senior citizens, disabled, and widows in Delhi",
+      "documents": ["Aadhaar", "Age/Disability Proof", "Income Certificate"],
+      "link": "https://edistrict.delhigovt.nic.in"
+    },
+    {
+      "name": "Farishtey Dilli Ke",
+      "benefits": "100% free treatment for road accident victims in any hospital",
+      "eligibility": "Anyone injured in an accident within Delhi borders",
+      "documents": ["Hospital Admission Record", "Police MLC"],
+      "link": "https://health.delhi.gov.in"
+    },
+    {
+      "name": "Mukhyamantri Tirth Yatra Yojana",
+      "benefits": "Free pilgrimage travel, food, and stay along with an attendant",
+      "eligibility": "Senior citizens of Delhi aged 60 and above",
+      "documents": ["Aadhaar", "Voter ID", "Medical Fitness Certificate"],
+      "link": "https://edistrict.delhigovt.nic.in"
+    },
+    {
+      "name": "Jai Bhim Mukhyamantri Pratibha Vikas Yojana",
+      "benefits": "Free coaching for competitive exams like UPSC, NEET, JEE",
+      "eligibility": "SC/ST/OBC students with family income less than Rs. 8 Lakh",
+      "documents": ["Aadhaar", "Caste Certificate", "Income Certificate", "10th/12th Marksheets"],
+      "link": "https://scstwelfare.delhigovt.nic.in"
+    },
+    {
+      "name": "Electric Vehicle Subsidy",
+      "benefits": "Cashback up to Rs. 30,000 on purchasing electric 2-wheelers",
+      "eligibility": "Delhi residents buying new electric vehicles",
+      "documents": ["Aadhaar", "Vehicle Registration (RC)", "Bank Account"],
+      "link": "https://ev.delhi.gov.in"
+    },
+    {
+      "name": "Mukhyamantri Vidyarthi Pratibha Yojana",
+      "benefits": "Rs. 5000 to Rs. 10000 cash prize for top scoring students",
+      "eligibility": "SC/ST/OBC students scoring above 60% in 9th to 12th grade",
+      "documents": ["Aadhaar", "School ID", "Bank Passbook", "Caste Certificate"],
+      "link": "https://edistrict.delhigovt.nic.in"
+    },
+    {
+      "name": "Delhi Widow Pension Scheme",
+      "benefits": "Financial aid of Rs. 2500 per month for widows",
+      "eligibility": "Widows aged 18 to 60 years living in Delhi",
+      "documents": ["Aadhaar", "Husband's Death Certificate", "Income Certificate"],
+      "link": "https://edistrict.delhigovt.nic.in"
+    },
+    {
+      "name": "Aam Aadmi Mohalla Clinic",
+      "benefits": "Free doctor consultation, 200+ tests, and free medicines",
+      "eligibility": "Any citizen visiting the clinic",
+      "documents": ["Valid ID Proof (Aadhaar or Voter ID)"],
+      "link": "https://health.delhi.gov.in"
+    },
+    {
+      "name": "Delhi Free Wifi Scheme",
+      "benefits": "15 GB high-speed internet data free per month",
+      "eligibility": "Any citizen possessing a valid mobile number",
+      "documents": ["Mobile Number for OTP"],
+      "link": "https://delhi.gov.in"
+    }
+  ],
+
+  "Uttar Pradesh": [
+    {
+      "name": "Kanya Sumangala Yojana",
+      "benefits": "Rs. 15,000 paid in 6 stages to support girl child education",
+      "eligibility": "Families with maximum 2 girls and income under Rs. 3 Lakh",
+      "documents": ["Aadhaar", "Income Certificate", "Girl's Birth Certificate"],
+      "link": "https://mksy.up.gov.in"
+    },
+    {
+      "name": "UP Scholarship Scheme",
+      "benefits": "Fee reimbursement and direct scholarship for poor students",
+      "eligibility": "Students studying in 9th to college level from UP",
+      "documents": ["Aadhaar", "Marksheets", "Income Certificate", "Caste Certificate"],
+      "link": "https://scholarship.up.gov.in"
+    },
+    {
+      "name": "Mukhyamantri Krishak Durghatna Kalyan Yojana",
+      "benefits": "Up to Rs. 5 Lakh compensation for farmers' death or disability",
+      "eligibility": "Farmers and tenant farmers facing accidental death or injury",
+      "documents": ["Aadhaar", "Death/Disability Certificate", "Land Records (Khatauni)"],
+      "link": "https://upagripardarshi.gov.in"
+    },
+    {
+      "name": "UP Pension Scheme",
+      "benefits": "Monthly pension of Rs. 1000 for elders, widows, and disabled",
+      "eligibility": "Destitute and poor citizens of UP",
+      "documents": ["Aadhaar", "Income Certificate", "Bank Passbook", "Age Proof"],
+      "link": "https://sspy-up.gov.in"
+    },
+    {
+      "name": "Bhagya Laxmi Yojana",
+      "benefits": "Rs. 50,000 bond given at girl's birth, matures at age 21",
+      "eligibility": "Below poverty line families having a girl child",
+      "documents": ["Aadhaar", "BPL Ration Card", "Birth Certificate of Girl child"],
+      "link": "https://mahilakalyan.up.nic.in"
+    },
+    {
+      "name": "Mati Kala Rozgar Yojana",
+      "benefits": "Interest-free loans up to Rs. 10 Lakh to traditional potters",
+      "eligibility": "Artisans and potters making clay products",
+      "documents": ["Aadhaar", "Artisan ID Card", "Bank details"],
+      "link": "https://diupmsme.upsdc.gov.in"
+    },
+    {
+      "name": "Kisan Asan Kist Yojana",
+      "benefits": "Waiver of surcharge on unpaid rural electricity bills via installments",
+      "eligibility": "Tubewell owners and rural domestic consumers",
+      "documents": ["Aadhaar", "Electricity Bill", "Bank Passbook"],
+      "link": "https://uppcl.org"
+    },
+    {
+      "name": "Vishwakarama Shram Samman Yojana",
+      "benefits": "Free training and toolkits provided to traditional workers",
+      "eligibility": "Tailors, carpenters, weavers, and barbers aged 18+",
+      "documents": ["Aadhaar", "Caste Proof", "Skill Certificate (if any)"],
+      "link": "https://diupmsme.upsdc.gov.in"
+    },
+    {
+      "name": "Mukhyamantri Abhyudaya Yojana",
+      "benefits": "Free highly professional coaching for IAS, IPS, and JEE",
+      "eligibility": "Meritorious students from economically weak backgrounds",
+      "documents": ["Aadhaar", "Income Proof", "Educational Certificates"],
+      "link": "https://abhyuday.up.gov.in"
+    },
+    {
+      "name": "UP Berojgari Bhatta",
+      "benefits": "Rs. 1000 to Rs. 1500 monthly unemployment allowance",
+      "eligibility": "Educated unemployed youth registered in employment exchange",
+      "documents": ["Aadhaar", "Employment Exchange ID", "Educational Degrees"],
+      "link": "https://sewayojan.up.nic.in"
+    }
+  ]
+}

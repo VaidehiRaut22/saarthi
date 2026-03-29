@@ -3,6 +3,7 @@
 // ─────────────────────────────────────────────
 import React, { useEffect, useState } from "react";
 import { useApp } from "../context/AppContext";
+import logoImg from "../assets/logo.png";
 
 export default function WelcomeScreen() {
   const { navigate } = useApp();
@@ -17,24 +18,28 @@ export default function WelcomeScreen() {
   return (
     <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full px-8">
 
-      {/* Logo / Icon */}
+      {/* Logo */}
       <div
-        className="logo-float mb-8"
+        className="logo-float mb-6"
         style={{ opacity: ready ? 1 : 0, transition: "opacity 0.8s ease", transitionDelay: "0.1s" }}
       >
         <div className="relative">
           {/* Outer glow ring */}
           <div className="absolute inset-0 rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)", transform: "scale(1.5)" }} />
-          {/* Icon */}
-          <div className="relative w-32 h-32 rounded-full flex items-center justify-center text-6xl"
+            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%)", transform: "scale(1.4)" }} />
+          {/* Logo image */}
+          <img
+            src={logoImg}
+            alt="Government Beneficiaries Logo"
             style={{
-              background: "linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(16,185,129,0.3) 100%)",
-              border: "2px solid rgba(99,102,241,0.4)",
-              boxShadow: "0 0 60px rgba(99,102,241,0.4), inset 0 0 30px rgba(99,102,241,0.1)"
-            }}>
-            🧭
-          </div>
+              width: "180px",
+              height: "180px",
+              objectFit: "contain",
+              borderRadius: "50%",
+              filter: "drop-shadow(0 0 24px rgba(99,102,241,0.5))",
+              position: "relative",
+            }}
+          />
         </div>
       </div>
 

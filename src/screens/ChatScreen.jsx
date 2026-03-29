@@ -5,12 +5,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useApp } from "../context/AppContext";
 
-const TOTAL_STEPS = 3;
+const TOTAL_STEPS = 5;
 
 export default function ChatScreen() {
   const { navigate, profile, setProfile, t, language } = useApp();
 
-  const [step, setStep] = useState(1); // 1=age, 2=income, 3=occupation
+  const [step, setStep] = useState(1); // 1=name, 2=state, 3=age, 4=income, 5=occupation
+  const [nameVal, setNameVal] = useState(profile.name || "");
+  const [stateVal, setStateVal] = useState(profile.state || "");
   const [ageVal, setAgeVal] = useState(profile.age || "");
   const [incomeVal, setIncomeVal] = useState(profile.income || "");
   const [occupationVal, setOccupationVal] = useState(profile.occupation || "");
@@ -18,13 +20,48 @@ export default function ChatScreen() {
   const [error, setError] = useState("");
   const [listening, setListening] = useState(false);
 
+  const nameRef = useRef(null);
   const ageRef = useRef(null);
   const otherRef = useRef(null);
 
-  // Auto-focus age input on mount
+  // Auto-focus logic and speech reading
   useEffect(() => {
-    if (step === 1 && ageRef.current) ageRef.current.focus();
-  }, [step]);
+    if (step === 1 && nameRef.current) nameRef.current.focus();
+    if (step === 3 && ageRef.current) ageRef.current.focus();
+
+    // Robot talks the question out loud
+    if (window.speechSynthesis) {
+        let textToSpeak = "";
+        if(step === 1) textToSpeak = t.name;
+        if(step === 2) textToSpeak = t.state;
+        if(step === 3) textToSpeak = t.age;
+        if(step === 4) textToSpeak = t.income;
+        if(step === 5) textToSpeak = t.occupation;
+
+        if (textToSpeak) {
+            const utter = new SpeechSynthesisUtterance(textToSpeak);
+            
+            // Fallback for Marathi if not supported by OS
+            let targetLang = language === "en" ? "en-IN" : language === "hi" ? "hi-IN" : "mr-IN";
+            utter.lang = targetLang;
+            
+            // Check if mr-IN voice exists
+            if (language === "mr") {
+                const voices = window.speechSynthesis.getVoices();
+                const hasMarathi = voices.some(v => v.lang.includes("mr"));
+                if (!hasMarathi) utter.lang = "hi-IN"; // fallback to Hindi voice reading Marathi text
+            }
+            
+            utter.rate = 0.95;
+            
+            // Store globally to prevent garbage collection bug in Chromium
+            window._currentUtterance = utter;
+            
+            window.speechSynthesis.cancel(); // stop current speech
+            window.speechSynthesis.speak(utter);
+        }
+    }
+  }, [step, t, language]);
 
   // Auto-focus "other" input when shown
   useEffect(() => {
@@ -50,11 +87,19 @@ export default function ChatScreen() {
       setError("");
 
       if (step === 1) {
+        setNameVal(text);
+      } else if (step === 2) {
+        // Match spoken state
+        const spoken = text.toLowerCase();
+        const match = t.states.find(s => spoken.includes(s.toLowerCase()));
+        if (match) setStateVal(match);
+        else setError(`Heard: "${text}". Please tap an option.`);
+      } else if (step === 3) {
         // Extract number from speech
         const num = text.match(/\d+/);
         if (num) setAgeVal(num[0]);
         else setError("Could not detect a number. Try again.");
-      } else if (step === 3) {
+      } else if (step === 5) {
         // Match spoken occupation
         const spoken = text.toLowerCase();
         const opts = t.occupationOptions;
@@ -76,21 +121,35 @@ export default function ChatScreen() {
     setError("");
 
     if (step === 1) {
+      if (!nameVal.trim()) {
+        setError("Please enter your name.");
+        return;
+      }
+      setProfile(p => ({ ...p, name: nameVal }));
+      setStep(2);
+    } else if (step === 2) {
+      if (!stateVal) {
+        setError("Please select your State.");
+        return;
+      }
+      setProfile(p => ({ ...p, state: stateVal }));
+      setStep(3);
+    } else if (step === 3) {
       const num = parseInt(ageVal, 10);
       if (isNaN(num) || num < 1 || num > 120) {
         setError(t.ageError);
         return;
       }
       setProfile(p => ({ ...p, age: ageVal }));
-      setStep(2);
-    } else if (step === 2) {
+      setStep(4);
+    } else if (step === 4) {
       if (!incomeVal) {
         setError(t.incomeNote);
         return;
       }
       setProfile(p => ({ ...p, income: incomeVal }));
-      setStep(3);
-    } else if (step === 3) {
+      setStep(5);
+    } else if (step === 5) {
       if (!occupationVal) {
         setError("Please select or type your occupation.");
         return;
@@ -107,6 +166,7 @@ export default function ChatScreen() {
 
   function handleBack() {
     setError("");
+    window.speechSynthesis.cancel();
     if (step > 1) setStep(step - 1);
     else navigate("language");
   }
@@ -140,8 +200,59 @@ export default function ChatScreen() {
             boxShadow: "0 0 80px rgba(0,0,0,0.4)",
           }}>
 
-          {/* ── STEP 1: AGE ── */}
+          {/* ── STEP 1: NAME ── */}
           {step === 1 && (
+            <div className="stagger">
+              <StepIcon icon="👋" color="#3b82f6" />
+              <h2 className="text-3xl font-bold text-white mb-2 mt-5" style={{ fontFamily: "Sora, sans-serif" }}>{t.name}</h2>
+              <p className="text-sm mb-6" style={{ color: "rgba(100,116,139,0.7)" }}>Let's get to know you</p>
+              <div className="flex gap-3 items-center">
+                <input
+                  ref={nameRef}
+                  type="text"
+                  className="kiosk-input flex-1 rounded-2xl px-5 py-4 text-2xl font-semibold"
+                  placeholder={t.namePlaceholder}
+                  value={nameVal}
+                  onChange={e => { setNameVal(e.target.value); setError(""); }}
+                  onKeyDown={e => e.key === "Enter" && handleNext()}
+                />
+                <MicButton listening={listening} onClick={startVoice} />
+              </div>
+            </div>
+          )}
+
+          {/* ── STEP 2: STATE ── */}
+          {step === 2 && (
+            <div className="stagger">
+              <StepIcon icon="🗺️" color="#ec4899" />
+              <h2 className="text-3xl font-bold text-white mb-2 mt-5" style={{ fontFamily: "Sora, sans-serif" }}>{t.state}</h2>
+              <div className="flex flex-col gap-3">
+                {t.states.map(stateName => (
+                  <button
+                    key={stateName}
+                    onClick={() => { setStateVal(stateName); setError(""); }}
+                    className="card-hover w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-left transition-all"
+                    style={{
+                      background: stateVal === stateName
+                        ? "linear-gradient(135deg, rgba(236,72,153,0.25) 0%, rgba(99,102,241,0.2) 100%)"
+                        : "rgba(255,255,255,0.04)",
+                      border: stateVal === stateName
+                        ? "2px solid rgba(236,72,153,0.6)"
+                        : "1px solid rgba(255,255,255,0.07)",
+                    }}
+                  >
+                    <span className="text-lg font-semibold text-white" style={{ fontFamily: "Noto Sans Devanagari, sans-serif" }}>
+                      {stateName}
+                    </span>
+                    {stateVal === stateName && <span className="ml-auto text-pink-400 text-xl">✓</span>}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ── STEP 3: AGE ── */}
+          {step === 3 && (
             <div className="stagger">
               <StepIcon icon="🎂" color="#6366f1" />
               <h2 className="text-3xl font-bold text-white mb-2 mt-5" style={{ fontFamily: "Sora, sans-serif" }}>{t.age}</h2>
@@ -162,8 +273,8 @@ export default function ChatScreen() {
             </div>
           )}
 
-          {/* ── STEP 2: INCOME ── */}
-          {step === 2 && (
+          {/* ── STEP 4: INCOME ── */}
+          {step === 4 && (
             <div className="stagger">
               <StepIcon icon="💰" color="#10b981" />
               <h2 className="text-3xl font-bold text-white mb-2 mt-5" style={{ fontFamily: "Sora, sans-serif" }}>{t.income}</h2>
@@ -196,8 +307,8 @@ export default function ChatScreen() {
             </div>
           )}
 
-          {/* ── STEP 3: OCCUPATION ── */}
-          {step === 3 && (
+          {/* ── STEP 5: OCCUPATION ── */}
+          {step === 5 && (
             <div className="stagger">
               <StepIcon icon="👤" color="#f59e0b" />
               <h2 className="text-3xl font-bold text-white mb-2 mt-5" style={{ fontFamily: "Sora, sans-serif" }}>{t.occupation}</h2>

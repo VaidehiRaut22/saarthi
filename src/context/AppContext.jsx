@@ -17,7 +17,7 @@ export function AppProvider({ children }) {
   const [language, setLanguage] = useState("en");
 
   // User profile collected in chat
-  const [profile, setProfile] = useState({ age: "", income: "", occupation: "" });
+  const [profile, setProfile] = useState({ name: "", state: "", age: "", income: "", occupation: "" });
 
   // Derived: current translation object
   const t = translations[language];

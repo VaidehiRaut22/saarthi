@@ -1,12 +1,11 @@
 // ─────────────────────────────────────────────
-//  SchemeModal.jsx  –  Full details modal with QR & Print
+//  SchemeModal.jsx  –  Full details modal with Print
 // ─────────────────────────────────────────────
 import React, { useRef } from "react";
-import { QRCodeSVG } from "qrcode.react";
 import { useReactToPrint } from "react-to-print";
 import { useApp } from "../context/AppContext";
 
-const PORTAL_URL = "https://www.india.gov.in/spotlight/government-schemes";
+
 
 export default function SchemeModal({ scheme, onClose }) {
   const { t, language } = useApp();
@@ -15,13 +14,13 @@ export default function SchemeModal({ scheme, onClose }) {
   // react-to-print hook
   const handlePrint = useReactToPrint({
     content: () => printRef.current,
-    documentTitle: scheme.name[language],
+    documentTitle: scheme.name?.[language] || scheme.name || "Government Scheme",
   });
 
-  const name = scheme.name[language];
-  const eligibility = scheme.eligibility[language];
-  const benefits = scheme.benefits[language];
-  const documents = scheme.documents[language];
+  const name = scheme.name?.[language] || scheme.name || "Government Scheme";
+  const eligibility = scheme.eligibility?.[language] || scheme.eligibility || "Check portal for details.";
+  const benefits = scheme.benefits?.[language] || scheme.benefits || "Assistance provided.";
+  const documents = scheme.documents?.[language] || scheme.documents_required || scheme.documents || [];
 
   return (
     <div
@@ -45,8 +44,8 @@ export default function SchemeModal({ scheme, onClose }) {
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-                style={{ background: `${scheme.color}22`, border: `1px solid ${scheme.color}44`, boxShadow: `0 0 20px ${scheme.color}33` }}>
-                {scheme.icon}
+                style={{ background: `${scheme.color || '#4f46e5'}22`, border: `1px solid ${scheme.color || '#4f46e5'}44`, boxShadow: `0 0 20px ${scheme.color || '#4f46e5'}33` }}>
+                {scheme.icon || '🏛️'}
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "rgba(99,102,241,0.8)" }}>
@@ -101,17 +100,7 @@ export default function SchemeModal({ scheme, onClose }) {
             </ul>
           </div>
 
-          {/* QR Code */}
-          <div className="flex flex-col items-center gap-4 mt-8 mb-2 py-6 rounded-2xl"
-            style={{ background: "rgba(99,102,241,0.05)", border: "1px solid rgba(99,102,241,0.15)" }}>
-            <div className="p-3 rounded-2xl bg-white">
-              <QRCodeSVG value={PORTAL_URL} size={140} bgColor="#ffffff" fgColor="#1e1b4b" />
-            </div>
-            <p className="text-sm text-center" style={{ color: "rgba(129,140,248,0.8)", fontFamily: "Sora, sans-serif" }}>
-              {t.scanQR}
-            </p>
-            <p className="text-xs" style={{ color: "rgba(100,116,139,0.6)" }}>{PORTAL_URL}</p>
-          </div>
+
         </div>
 
         {/* Action Buttons */}
